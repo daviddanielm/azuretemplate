@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    //EXLab Domain input
+    "DomainName": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Domain Name to be used in Local AD and Public DNS"
+      }
+    },
+
+    //EXlab Credentials input
+    "AdminUserName": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Admin username which will be used as Domain Admin"
+      }
+    },
+
+    "AdminPassword": {
+      "type": "securestring",
+      "minLength": 1,
+      "metadata": {
+        "description": "Admin Password"
+      }
+    },
+
+    // Deployment asset location
+    "assetLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of resources such as templates and DSC modules that the script is dependent"
+      },
+      "defaultValue": "https://github.com/daviddanielm/azuretemplate/tree/master/AzureResourceGroup2/AzureResourceGroup2/"
+    }
+  },
+  "variables": {
+
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-01-01",
+      "name": "labvnet",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "contentVersion": "1.1.0.0",
+          "uri": "[concat(parameters('assetLocation'),'vnet.json')]"
+        },
+        "parameters": {
+
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
