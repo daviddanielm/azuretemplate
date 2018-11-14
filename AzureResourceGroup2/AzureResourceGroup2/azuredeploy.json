@@ -35,7 +35,7 @@
       "metadata": {
         "description": "The location of resources such as templates and DSC modules that the script is dependent"
       },
-      "defaultValue": "https://github.com/daviddanielm/azuretemplate/tree/master/"
+      "defaultValue": "https://github.com/daviddanielm/azuretemplate/tree/master/AzureResourceGroup2/AzureResourceGroup2/"
     }
   },
   "variables": {
@@ -50,7 +50,7 @@
         "mode": "Incremental",
         "templateLink": {
           "contentVersion": "1.1.0.0",
-          "uri": "[concat(parameters('assetLocation'),'/','vnet.json')]"
+          "uri": "[concat(parameters('assetLocation'),'vnet.json')]"
         },
         "parameters": {
 
