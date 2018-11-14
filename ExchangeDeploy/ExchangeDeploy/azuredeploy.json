@@ -1,9 +1,17 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "assetLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of resources such as templates and DSC modules that the script is dependent"
+      },
+      "defaultValue": "https://github.com/daviddanielm/azuretemplate/tree/master/ExchangeDeploy/ExchangeDeploy"
+    }
+  },
   "variables": {
-    
+
   },
   "resources": [
     {
@@ -13,14 +21,14 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[variables('labvneturi')]",
-          "contentVersion": "1.1.0.0"
+          "contentVersion": "1.1.0.0",
+          "uri": "[concat(parameters('assetLocation'),'/vnet.json')]"
         },
         "parameters": {
-          
-          }
+
         }
       }
+    }
   ],
   "outputs": {}
 }
