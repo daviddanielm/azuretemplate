@@ -2,6 +2,10 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "dnsServers": {
+      "type": "array",
+      "defaultValue": []
+    }
   },
   "variables": {
     "labvnetPrefix": "192.168.1.0/16",
@@ -23,6 +27,9 @@
           "addressPrefixes": [
             "[variables('labvnetPrefix')]"
           ]
+        },
+        "dhcpOptions": {
+          "dnsServers": "[parameters('dnsServers')]"
         },
         "subnets": [
           {
