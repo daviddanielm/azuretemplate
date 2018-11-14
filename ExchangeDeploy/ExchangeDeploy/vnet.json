@@ -1,0 +1,40 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "variables": {
+    "labvnetPrefix": "192.168.1.0/16",
+    "labvnetSubnet1Name": "labsubnet1",
+    "labvnetSubnet1Prefix": "192.168.1.0/27"
+  },
+  "resources": [
+    {
+      "name": "labvnet",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2016-03-30",
+      "dependsOn": [ ],
+      "tags": {
+        "displayName": "labvnet"
+      },
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('labvnetPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('labvnetSubnet1Name')]",
+            "properties": {
+              "addressPrefix": "[variables('labvnetSubnet1Prefix')]"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+  }
+}

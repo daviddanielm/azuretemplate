@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ExchangeDeploy"
+    "\\ExchangeDeploy1",
+    "\\ExchangeDeploy1\\ExchangeDeploy1"
   ],
-  "SelectedNode": "\\ExchangeDeploy",
+  "SelectedNode": "\\ExchangeDeploy1\\ExchangeDeploy1\\azuredeploy.parameters.json",
   "PreviewInSolutionExplorer": false
 }
